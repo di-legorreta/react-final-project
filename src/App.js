@@ -10,7 +10,7 @@ export default function App() {
             <a
                href="https://github.com/di-legorreta"
                target="_blank"
-               rel="noopener"
+               rel="noreferrer noopener"
             >
                {" "}
                Diana Legorreta{" "}
@@ -19,7 +19,7 @@ export default function App() {
             <a
                href="https://github.com/di-legorreta/react-final-project"
                target="_blank"
-               rel="noopener"
+               rel="noreferrer noopener"
             >
                github
             </a>{" "}
