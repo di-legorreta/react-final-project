@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function WeatherInfo(props) {
-   const [city, setCity] = useState("");
    const [weather, setWeather] = useState({ ready: false });
 
    function displayWeather(response) {
       console.log(response.data);
       setWeather({
          ready: true,
-         city: response.data.city,
          temperature: response.data.temperature.current,
          wind: response.data.wind.speed,
          humidity: response.data.temperature.humidity,
