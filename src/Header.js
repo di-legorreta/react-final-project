@@ -4,7 +4,7 @@ export default function Header() {
          <a
             href="https://www.shecodes.io/"
             target="_blank"
-            rel="noopnoopener noreferrerener"
+            rel="noreferrer noopener"
          >
             <img src="/logo.png" alt="She Codes logo" width="150" />
          </a>
