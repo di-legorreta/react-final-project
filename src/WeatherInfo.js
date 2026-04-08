@@ -21,7 +21,7 @@ export default function WeatherInfo(props) {
       return (
          <div className="weather-app-data">
             <div>
-               <h1 className="weather-app-city">{weather.city}</h1>
+               <h1 className="weather-app-city">{props.defaultCity}</h1>
 
                <p className="weather-app-details">
                   Sunday 18:32{" "}
