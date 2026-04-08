@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useStates } from "react";
+import axios from "axios";
 import Header from "./Header";
 import SearchForm from "./SearchForm";
 import WeatherInfo from "./WeatherInfo";
@@ -8,10 +9,10 @@ import Footer from "./Footer";
 export default function Weather() {
    return (
       <div className="weather-container glass">
-         <Header />
-         <SearchForm />
          <main>
-            <WeatherInfo />
+            <Header />
+            <SearchForm />
+            <WeatherInfo defaultCity="Berlin" />
             <WeatherForecast />
          </main>
          <Footer />
