@@ -12,7 +12,7 @@ export default function Footer() {
             </a>{" "}
             open-sourced on{" "}
             <a
-               href="https://github.com/di-legorreta/weather-app-week4"
+               href="https://github.com/di-legorreta/react-final-project"
                target="_blank"
                rel="noopener noreferrer"
             >
@@ -20,7 +20,7 @@ export default function Footer() {
             </a>{" "}
             and hosted on{" "}
             <a
-               href="https://weather-app-week4.pages.dev/"
+               href="https://react-final-project-6wj.pages.dev/"
                target="_blank"
                rel="noopener noreferrer"
             >
