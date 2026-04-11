@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
    const [weather, setWeather] = useState({ ready: false });
@@ -15,7 +16,7 @@ export default function WeatherInfo(props) {
          humidity: response.data.temperature.humidity,
          description: response.data.condition.description,
          date: new Date(response.data.time * 1000),
-         icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+         icon: response.data.condition.icon,
       });
    }
 
@@ -46,7 +47,7 @@ export default function WeatherInfo(props) {
 
          <div className="weather-app-temp-container">
             <div className="weather-app-icon">
-               <img src={weather.icon} alt="icon" />
+               <WeatherIcon code={weather.icon} alt={weather.description} />
             </div>
             <div className="weather-app-temp-value">
                {Math.round(weather.temperature)}
