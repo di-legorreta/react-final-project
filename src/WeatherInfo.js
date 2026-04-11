@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
    const [weather, setWeather] = useState({ ready: false });
 
    function displayWeather(response) {
       console.log(response.data);
+      if (!response.data.temperature || response.data.status === "not_found") {
+         alert("City not found. Please try another one.");
+         return;
+      }
       setWeather({
          ready: true,
          city: response.data.city,
@@ -49,10 +54,9 @@ export default function WeatherInfo(props) {
             <div className="weather-app-icon">
                <WeatherIcon code={weather.icon} alt={weather.description} />
             </div>
-            <div className="weather-app-temp-value">
-               {Math.round(weather.temperature)}
+            <div>
+               <WeatherTemperature celsius={weather.temperature} />
             </div>
-            <div className="weather-app-temp-unit">°C</div>
          </div>
       </div>
    );
