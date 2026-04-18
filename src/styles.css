@@ -338,22 +338,13 @@ body {
    flex: 1;
    padding: 20px 12px;
    border-radius: 20px;
-   background: rgba(255, 255, 255, 0.1);
-   backdrop-filter: blur(10px);
-   border: 1px solid rgba(255, 255, 255, 0.2);
    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
    cursor: pointer;
 }
 
-.weather-forecast > div:hover {
-   background: rgba(255, 255, 255, 0.15);
-   transform: translateY(-4px);
-   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
-
 .weather-forecast-date {
    text-align: center;
-   color: #475569;
+   color: #1e293b;
    font-size: 16px;
    font-weight: 600;
    line-height: 1.4;
@@ -361,16 +352,21 @@ body {
 }
 
 .weather-forecast-icon {
-   font-size: 36px;
    text-align: center;
    margin: 8px 0;
    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
 }
 
+.weather-forecast-icon img,
+.weather-forecast-icon svg {
+   width: 36px;
+   height: 36px;
+}
+
 .weather-forecast-temps {
    font-size: 16px;
    text-align: center;
-   color: #1e293b;
+   color: #334155;
    display: flex;
    justify-content: center;
    margin-top: 12px;
@@ -385,6 +381,12 @@ body {
 .weather-forecast-temper:hover {
    color: #334155;
    transform: scale(1.05);
+}
+
+.weather-forecast-temper strong {
+   font-family: "Inter", "Segoe UI", sans-serif;
+   color: #1e293b;
+   font-weight: 600;
 }
 
 /* Responsive Design */
