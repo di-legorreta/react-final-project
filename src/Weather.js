@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import SearchForm from "./SearchForm";
 import WeatherInfo from "./WeatherInfo";
-import WeatherDailyForecast from "./WeatherDailyForecast";
+import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
 
 export default function Weather() {
@@ -18,7 +18,7 @@ export default function Weather() {
             <Header />
             <SearchForm onSearch={handleCityChange} />
             <WeatherInfo city={city} />
-            <WeatherDailyForecast />
+            <WeatherForecast city={city} />
          </main>
          <Footer />
       </div>
