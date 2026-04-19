@@ -7,6 +7,7 @@ import Footer from "./Footer";
 
 export default function Weather() {
    const [city, setCity] = useState("Berlin");
+   const [weather, setWeather] = useState({ ready: false });
 
    function handleCityChange(newCity) {
       setCity(newCity);
@@ -17,8 +18,10 @@ export default function Weather() {
          <main>
             <Header />
             <SearchForm onSearch={handleCityChange} />
-            <WeatherInfo city={city} />
-            <WeatherForecast city={city} />
+            <WeatherInfo city={city} setWeather={setWeather} />
+            {weather.ready && (
+               <WeatherForecast coordinates={weather.coordinates} />
+            )}
          </main>
          <Footer />
       </div>

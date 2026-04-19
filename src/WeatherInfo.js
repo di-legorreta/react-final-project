@@ -5,32 +5,40 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
+   const { city, setWeather: setParentWeather } = props;
    const [weather, setWeather] = useState({ ready: false });
 
-   function displayWeather(response) {
-      console.log(response.data);
-      if (!response.data.temperature || response.data.status === "not_found") {
-         alert("City not found. Please try another one.");
-         return;
-      }
-      setWeather({
-         ready: true,
-         city: response.data.city,
-         temperature: response.data.temperature.current,
-         wind: response.data.wind.speed,
-         humidity: response.data.temperature.humidity,
-         description: response.data.condition.description,
-         date: new Date(response.data.time * 1000),
-         icon: response.data.condition.icon,
-      });
-   }
-
    useEffect(() => {
+      function displayWeather(response) {
+         console.log(response.data);
+         if (
+            !response.data.temperature ||
+            response.data.status === "not_found"
+         ) {
+            alert("City not found. Please try another one.");
+            return;
+         }
+
+         let newWeather = {
+            ready: true,
+            city: response.data.city,
+            coordinates: response.data.coordinates,
+            temperature: response.data.temperature.current,
+            wind: response.data.wind.speed,
+            humidity: response.data.temperature.humidity,
+            description: response.data.condition.description,
+            date: new Date(response.data.time * 1000),
+            icon: response.data.condition.icon,
+         };
+         setWeather(newWeather);
+         setParentWeather(newWeather);
+      }
+
       setWeather({ ready: false });
 
-      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.city}&key=297bdob5643aebcfc422bc019b792eta&units=metric`;
+      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=297bdob5643aebcfc422bc019b792eta&units=metric`;
       axios.get(apiUrl).then(displayWeather);
-   }, [props.city]);
+   }, [city, setParentWeather]);
 
    if (!weather.ready) {
       return "Loading...";
